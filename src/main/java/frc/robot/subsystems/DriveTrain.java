@@ -25,14 +25,14 @@ public class DriveTrain extends Subsystem {
 
   public boolean moveLeftWheels(double distance){
     return true;
-  };
+  }
   public boolean moveRightWheels(double distance){
     return true;
-  };
+  }
   public double getRightEncoder(){
     return 0.0;
-  };
-  public double getLeftEncoder(){
+  }
+    public double getLeftEncoder(){
     return 0.0;
-  };
+  }
 }

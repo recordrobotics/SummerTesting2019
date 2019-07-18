@@ -25,14 +25,14 @@ public class DriveTrain2018 extends DriveTrain {
 
   public boolean moveLeftWheels(double distance){
     return true;
-  };
+  }
   public boolean moveRightWheels(double distance){
     return true;
-  };
+  }
   public double getRightEncoder(){
     return 0.0;
-  };
+  }
   public double getLeftEncoder(){
     return 0.0;
-  };
+  }
 }

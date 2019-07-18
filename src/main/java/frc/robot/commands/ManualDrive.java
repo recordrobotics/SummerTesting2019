@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.Robot;
+import frc.robot.OI;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -44,8 +45,8 @@ public class ManualDrive extends Command{
     leftAmount = OI.sCurve(leftAmount) * 2 - 1;
     rightAmount = OI.sCurve(rightAmount) * 2 - 1;
 
-    driveTrain.moveLeftWheels(leftAmount);
-    driveTrain.moveRightWheels(rightAmount);
+    Robot.driveTrain.moveLeftWheels(leftAmount);
+    Robot.driveTrain.moveRightWheels(rightAmount);
 
     return ((leftAmount + rightAmount) / 2);
   }
