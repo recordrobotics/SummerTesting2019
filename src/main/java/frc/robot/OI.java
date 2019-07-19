@@ -8,11 +8,14 @@
 package frc.robot;
 
 import java.lang.Math;
+import frc.robot.Controller;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
+  public static Controller controller = new Controller();
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.

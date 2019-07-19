@@ -6,6 +6,7 @@ import frc.robot.RobotMap;
 
 public class Controller{
 	public Joystick buttonPanel;
+	
 	public JoystickButton greenleft;
 	public JoystickButton greenright;
 	public JoystickButton yellowleft;
@@ -18,14 +19,15 @@ public class Controller{
 
 	public Controller(){
 		buttonPanel = new Joystick(RobotMap.buttonPanelPort);
-		greenleft = new Joystick(RobotMap.greenleft);
-		greenright = new Joystick(RobotMap.greenright);
-		yellowleft = new Joystick(RobotMap.yellowleft);
-		yellowright = new Joystick(RobotMap.yellowright);
-		redleft = new Joystick(RobotMap.redleft);
-		redright = new Joystick(RobotMap.redright);
-		blueleft = new Joystick(RobotMap.blueleft);
-		blueright = new Joystick(RobotMap.blueright);
-		white = new Joystick(RobotMap.white);
+
+		greenleft = new JoystickButton(buttonPanel, RobotMap.greenleft);
+		greenright = new JoystickButton(buttonPanel, RobotMap.greenright);
+		yellowleft = new JoystickButton(buttonPanel, RobotMap.yellowleft);
+		yellowright = new JoystickButton(buttonPanel, RobotMap.yellowright);
+		redleft = new JoystickButton(buttonPanel, RobotMap.redleft);
+		redright = new JoystickButton(buttonPanel, RobotMap.redright);
+		blueleft = new JoystickButton(buttonPanel, RobotMap.blueleft);
+		blueright = new JoystickButton(buttonPanel, RobotMap.blueright);
+		white = new JoystickButton(buttonPanel, RobotMap.white);
 	}
 }
