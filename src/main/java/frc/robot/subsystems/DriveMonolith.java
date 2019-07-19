@@ -8,27 +8,37 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Spark;
+import frc.robot.RobotMap;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class DriveTrain2018 extends DriveTrain {
+public class DriveMonolith extends DriveTrain {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  Spark frontRight = new Spark(RobotMap.driveFrontRightPortMonolith);
+  Spark backRight = new Spark(RobotMap.driveBackRightPortMonolith);
+  Spark frontLeft = new Spark(RobotMap.driveFrontLeftPortMonolith);
+  Spark backLeft = new Spark(RobotMap.driveBackLeftPortMonolith);
 
 
-  public void initDefaultCommand(){};
-  //  {
-  //   // Set the default command for a subsystem here.
-  //   // setDefaultCommand(new MySpecialCommand());
-  // }
 
+  @Override
   public boolean moveLeftWheels(double distance){
+    frontLeft.set(distance);
+    backLeft.set(distance);
     return true;
   }
+
+  @Override
   public boolean moveRightWheels(double distance){
+    frontRight.set(-distance);
+    backRight.set(-distance);
     return true;
   }
+
+
   public double getRightEncoder(){
     return 0.0;
   }

@@ -24,8 +24,8 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-	public static int driveFrontRightPortOld = 2;
-	public static int driveFrontLeftPortOld = 0;
-	public static int driveBackRightPortOld = 3;
-	public static int driveBackLeftPortOld = 1;
+	public static int driveFrontRightPortMonolith = 2;
+	public static int driveFrontLeftPortMonolith = 0;
+	public static int driveBackRightPortMonolith = 3;
+	public static int driveBackLeftPortMonolith = 1;
 }

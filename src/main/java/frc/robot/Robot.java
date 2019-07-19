@@ -23,9 +23,17 @@ import frc.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
+  /*
+  * 18 = Monolith
+  * 19 = Monty
+  */
+  public static final int CURRENT_ROBOT = 18;
+
+
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
-  public static DriveTrain driveTrain = new DriveTrain();
+  public static DriveTrain driveTrain;
   public static OI m_oi;
+
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -40,6 +48,12 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    if(CURRENT_ROBOT == 18){
+      driveTrain = new DriveMonolith();
+    } else if (CURRENT_ROBOT == 19){
+      driveTrain = new DriveTrain();
+    }
   }
 
   /**

@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.ManualDrive;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -17,11 +18,10 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
 
-  public void initDefaultCommand(){};
-  //  {
-  //   // Set the default command for a subsystem here.
-  //   // setDefaultCommand(new MySpecialCommand());
-  // }
+  public void initDefaultCommand(){
+    setDefaultCommand(new ManualDrive());
+  }
+
 
   public boolean moveLeftWheels(double distance){
     return true;
