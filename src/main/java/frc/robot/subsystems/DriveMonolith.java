@@ -25,24 +25,20 @@ public class DriveMonolith extends DriveTrain {
 
 
   @Override
-  public boolean moveLeftWheels(double distance){
-    frontLeft.set(distance);
-    backLeft.set(distance);
+  public boolean moveLeftWheels(double amount){
+    frontLeft.set(amount);
+    backLeft.set(amount);
     return true;
   }
 
   @Override
-  public boolean moveRightWheels(double distance){
-    frontRight.set(-distance);
-    backRight.set(-distance);
+  public boolean moveRightWheels(double amount){
+    frontRight.set(-amount);
+    backRight.set(-amount);
     return true;
   }
 
+  
 
-  public double getRightEncoder(){
-    return 0.0;
-  }
-  public double getLeftEncoder(){
-    return 0.0;
-  }
+
 }

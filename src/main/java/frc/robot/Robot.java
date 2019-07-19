@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
     if(CURRENT_ROBOT == 18){
       driveTrain = new DriveMonolith();
     } else if (CURRENT_ROBOT == 19){
-      driveTrain = new DriveTrain();
+      driveTrain = new DriveMonty();
     }
   }
 

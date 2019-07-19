@@ -24,8 +24,17 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+
+	//Spark Motors for Monolith
 	public static int driveFrontRightPortMonolith = 2;
 	public static int driveFrontLeftPortMonolith = 0;
 	public static int driveBackRightPortMonolith = 3;
 	public static int driveBackLeftPortMonolith = 1;
+
+	// CAN Bus Drive 
+	public static int driveFrontRightPortMonty = 7;
+	public static int driveFrontLeftPortMonty = 5;
+	public static int driveBackRightPortMonty = 2;
+	public static int driveBackLeftPortMonty = 1;
+
 }

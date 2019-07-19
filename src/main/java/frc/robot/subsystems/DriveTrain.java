@@ -17,7 +17,9 @@ public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-
+  private long disabled_time = 0;
+  private long disabled_start_time = 0;
+  
   public void initDefaultCommand(){
     setDefaultCommand(new ManualDrive());
   }
@@ -34,5 +36,23 @@ public class DriveTrain extends Subsystem {
   }
     public double getLeftEncoder(){
     return 0.0;
+  }
+
+
+  /*
+  * disables for t millis
+  */
+  public boolean disabled() {
+    return System.currentTimeMillis() - disabled_start_time < disabled_time; 
+  }
+
+  public void disable(long t) {
+    disabled_time = t;
+    disabled_start_time = System.currentTimeMillis();
+  }
+
+  public void stop() {
+    moveLeftWheels(0);
+    moveRightWheels(0);
   }
 }
