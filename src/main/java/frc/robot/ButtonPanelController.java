@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
 
 
-public class Controller{
+public class ButtonPanelController{
 	public Joystick buttonPanel;
 	
 	public JoystickButton greenleft;
@@ -17,7 +17,7 @@ public class Controller{
 	public JoystickButton blueright;
 	public JoystickButton white;
 
-	public Controller(){
+	public ButtonPanelController(){
 		buttonPanel = new Joystick(RobotMap.buttonPanelPort);
 
 		greenleft = new JoystickButton(buttonPanel, RobotMap.greenleft);
@@ -30,4 +30,6 @@ public class Controller{
 		blueright = new JoystickButton(buttonPanel, RobotMap.blueright);
 		white = new JoystickButton(buttonPanel, RobotMap.white);
 	}
+
+
 }
