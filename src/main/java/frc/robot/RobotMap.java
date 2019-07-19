@@ -37,4 +37,15 @@ public class RobotMap {
 	public static int driveBackRightPortMonty = 2;
 	public static int driveBackLeftPortMonty = 1;
 
+	//button panel
+	public static int greenleft = 1;
+	public static int greenright = 2;
+	public static int yellowleft = 3;
+	public static int yellowright = 4;
+	public static int redleft = 7;
+	public static int redright = 5;
+	public static int blueleft = 8;
+	public static int blueright = 9;
+	public static int white = 6;
+
 }
