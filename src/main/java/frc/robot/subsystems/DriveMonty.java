@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 
-//TODO: uncomment this once approprite stuff is installed 
-/*
+
+//If this is throwing an error - you need to install ctre Pheonix stuff, it's a pain, sorry :(
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.*;
-*/
+
 
 
 /*
@@ -26,8 +26,8 @@ public class DriveMonty extends DriveTrain {
   // here. Call these from Commands.
 
 
-  //TODO: uncomment this once approprite libraries are installed
-  /*
+  
+  //If this is throwing an error - you need to install ctre Pheonix stuff, it's a pain, sorry :(
   WPI_VictorSPX frontRight = new WPI_VictorSPX(RobotMap.driveFrontRightPortMonty);
   WPI_VictorSPX backRight = new WPI_VictorSPX(RobotMap.driveBackRightPortMonty);
   WPI_VictorSPX frontLeft = new WPI_VictorSPX(RobotMap.driveFrontLeftPortMonty);
@@ -49,7 +49,7 @@ public class DriveMonty extends DriveTrain {
     frontRight.set(ControlMode.PercentOutput, -amount);
     return true;
   }
-  */
+  
   
 
 }
