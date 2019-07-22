@@ -13,7 +13,7 @@ import frc.robot.commands.ManualDrive;
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class DriveTrain extends Subsystem {
+public abstract class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -25,18 +25,10 @@ public class DriveTrain extends Subsystem {
   }
 
 
-  public boolean moveLeftWheels(double distance){
-    return true;
-  }
-  public boolean moveRightWheels(double distance){
-    return true;
-  }
-  public double getRightEncoder(){
-    return 0.0;
-  }
-    public double getLeftEncoder(){
-    return 0.0;
-  }
+  public abstract void moveLeftWheels(double distance);
+  public abstract void moveRightWheels(double distance);
+  public abstract double getRightEncoder();
+  public abstract double getLeftEncoder();
 
 
   /*

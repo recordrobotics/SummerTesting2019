@@ -38,16 +38,23 @@ public class DriveMonty extends DriveTrain {
     backLeft.follow(frontLeft);
   }
 
-  @Override
-  public boolean moveLeftWheels(double amount){
+
+  public void moveLeftWheels(double amount){
     frontLeft.set(ControlMode.PercentOutput, amount);
-    return true;
   }
 
-  @Override
-  public boolean moveRightWheels(double amount){
+
+  public void moveRightWheels(double amount){
     frontRight.set(ControlMode.PercentOutput, -amount);
-    return true;
+  }
+
+
+  public double getLeftEncoder(){
+    return 0.0;
+  }
+
+  public double getRightEncoder(){
+    return 0.0;
   }
   
   
