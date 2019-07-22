@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* CopyRight (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -14,10 +14,10 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-  // For example to map the left and right motors, you could define the
+  // For example to map the Left and Right motors, you could define the
   // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+  // public static int LeftMotor = 1;
+  // public static int RightMotor = 2;
 
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
@@ -39,14 +39,14 @@ public class RobotMap {
 
 	//button panel
 	public static int buttonPanelPort = 1;
-	public static int greenleft = 1;
-	public static int greenright = 2;
-	public static int yellowleft = 3;
-	public static int yellowright = 4;
-	public static int redleft = 7;
-	public static int redright = 5;
-	public static int blueleft = 8;
-	public static int blueright = 9;
+	public static int greenLeft = 1;
+	public static int greenRight = 2;
+	public static int yellowLeft = 3;
+	public static int yellowRight = 4;
+	public static int redLeft = 7;
+	public static int redRight = 5;
+	public static int blueLeft = 8;
+	public static int blueRight = 9;
 	public static int white = 6;
 
 }
