@@ -11,11 +11,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.ManualDrive;
 
 /**
- * An example subsystem.  You can replace me with your own Subsystem.
+ * This is the class that all Record Robotics drive trains should extend
  */
 public abstract class DriveTrain extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
   private long disabled_time = 0;
   private long disabled_start_time = 0;
@@ -24,20 +22,26 @@ public abstract class DriveTrain extends Subsystem {
     setDefaultCommand(new ManualDrive());
   }
 
+  /* 
+  * amount is ambiguous, if it is inconsistant accross robots, 
+  * change the appropriate subclass of DriveTrain, NOT the command
+  */
+  public abstract void moveLeftWheels(double amount);
+  public abstract void moveRightWheels(double amount);
 
-  public abstract void moveLeftWheels(double distance);
-  public abstract void moveRightWheels(double distance);
+
   public abstract double getRightEncoder();
   public abstract double getLeftEncoder();
 
 
-  /*
-  * disables for t millis
-  */
-  public boolean disabled() {
+
+  public boolean isDisabled() {
     return System.currentTimeMillis() - disabled_start_time < disabled_time; 
   }
 
+  /*
+  * disables for t millis
+  */
   public void disable(long t) {
     disabled_time = t;
     disabled_start_time = System.currentTimeMillis();
