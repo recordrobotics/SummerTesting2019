@@ -23,11 +23,11 @@ import frc.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  /*
-  * 18 = Monolith
-  * 19 = Monty
-  */
-  public static final int CURRENT_ROBOT = 18;
+  
+  public enum CurrentRobot{
+    MONOLITH, MONTY;
+  }
+  CurrentRobot currentRobot = CurrentRobot.MONOLITH;
 
 
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
@@ -49,10 +49,12 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
 
-    if(CURRENT_ROBOT == 18){
+    if(currentRobot == CurrentRobot.MONOLITH){
       driveTrain = new DriveMonolith();
-    } else if (CURRENT_ROBOT == 19){
+    } else if (currentRobot == CurrentRobot.MONTY){
       driveTrain = new DriveMonty();
+    } else {
+      System.out.println("OH NO ---> someone forgot to instantiate the drive train");
     }
   }
 
