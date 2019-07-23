@@ -9,7 +9,7 @@ package frc.robot;
 
 import java.lang.Math;
 import frc.robot.ButtonPanelController;
-import frc.robot.ButtonMap;
+import frc.robot.Buttons;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -19,8 +19,7 @@ public class OI {
   public ButtonPanelController buttons;
   public OI(){
     buttons = new ButtonPanelController();
-
-    System.out.println(buttons.getButton(ButtonMap.WHITE));
+    System.out.println(buttons.getButton(Buttons.WHITE));
 
   }
   
