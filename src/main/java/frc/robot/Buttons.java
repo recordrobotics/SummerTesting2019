@@ -1,3 +1,5 @@
+package frc.robot;	
+
 import frc.robot.RobotMap;
 // import frc.robot.ButtonPanelController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -17,26 +19,14 @@ public enum ButtonMap {
 	WHITE (RobotMap.white);
 
 	private final int virtualPort;
-	private JoystickButton button;
-	private static Joystick joy = new Joystick(RobotMap.buttonPanelPort);
 
 
 	ButtonMap(int virtualPort){
 		this.virtualPort = virtualPort;
-
-		button = new JoystickButton(() -> joy, this.virtualPort);
 	}
 
-	public static Joystick getJoystick(){
-		return joy;
-	}
-
-	public boolean getState(){
-		return joy.getRawButton(virtualPort);
-	}
-
-	public boolean getPressed(){
-		return true;
+	public int getPort(){
+		return this.virtualPort;
 	}
 
 
