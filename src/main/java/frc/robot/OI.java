@@ -8,24 +8,39 @@
 package frc.robot;
 
 import java.lang.Math;
-import frc.robot.ButtonPanelController;
-import frc.robot.Buttons;
+import frc.robot.control.Buttons;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
 
-  public ButtonPanelController buttons;
   public OI(){
-    buttons = new ButtonPanelController();
-    System.out.println(buttons.getButton(Buttons.WHITE));
 
   }
+
+  /*
+  * HELPER METHODS
+  */
   
   public static double sCurve(double value){
 
     double e = 2.718;
     return (1 / (1 + Math.pow(e, value)));
   }
+
+  /*
+  * INPUT HANDELING METHODS
+  */
+
+  public static double getForward(){
+    return 1.0;
+  }
+
+  public static double getTurn(){
+    return 1.0;
+  }
+
+
 }

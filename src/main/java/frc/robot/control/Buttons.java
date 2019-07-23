@@ -1,4 +1,4 @@
-package frc.robot;	
+package frc.robot.control;	
 
 import frc.robot.RobotMap;
 // import frc.robot.ButtonPanelController;
@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.OI;
 
 
-public enum ButtonMap {
+public enum Buttons {
 	GREENLEFT (RobotMap.greenLeft),
 	GREENRIGHT (RobotMap.greenRight),
 	YELLOWLEFT (RobotMap.yellowLeft),
@@ -21,7 +21,7 @@ public enum ButtonMap {
 	private final int virtualPort;
 
 
-	ButtonMap(int virtualPort){
+	Buttons(int virtualPort){
 		this.virtualPort = virtualPort;
 	}
 

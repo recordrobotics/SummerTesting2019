@@ -1,8 +1,8 @@
-package frc.robot;
+package frc.robot.control;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
-import frc.robot.Buttons;
+import frc.robot.control.Buttons;
 
 
 public class ButtonPanelController{
@@ -28,6 +28,12 @@ public class ButtonPanelController{
 	public boolean getPressed(Buttons button){
 		return buttonPanel.getRawButtonPressed(button.getPort());
 	}
+
+	public boolean getReleased​(Buttons button) {
+		return buttonPanel.getRawButtonReleased​(button.getPort());
+	}
+
+	
 
 
 
