@@ -5,7 +5,7 @@ import frc.robot.RobotMap;
 
 
 public class ButtonPanelController{
-	private Joystick buttonPanel;
+	public Joystick buttonPanel;
 	
 	private JoystickButton greenLeft;
 	private JoystickButton greenRight;
@@ -31,41 +31,72 @@ public class ButtonPanelController{
 		white = new JoystickButton(buttonPanel, RobotMap.white);
 	}
 
+
+	/*
+	get states
+	*/
 	public boolean getGreenLeft(){
-		return buttonPanel.getRawButtonPressed(RobotMap.greenLeft);
+		return greenLeft.get();
 	} 
 
 	public boolean getGreenRight(){
-		return buttonPanel.getRawButtonPressed(RobotMap.greenRight);
+		return greenRight.get();
 	}
 
 	public boolean getYellowLeft(){
-		return buttonPanel.getRawButtonPressed(RobotMap.yellowLeft);
+		return yellowLeft.get();
 	}
 
 	public boolean getYellowRight(){
-		return buttonPanel.getRawButtonPressed(RobotMap.yellowRight);
+		return yellowRight.get();
 	}
 
 	public boolean getRedLeft(){
-		return buttonPanel.getRawButtonPressed(RobotMap.redLeft);
+		return redLeft.get();
 	}
 
 	public boolean getRedRight(){
-		return buttonPanel.getRawButtonPressed(RobotMap.redRight);
+		return redRight.get();
 	}
 
 	public boolean getBlueLeft(){
-		return buttonPanel.getRawButtonPressed(RobotMap.blueLeft);
+		return blueLeft.get();
 	}
 
 	public boolean getBlueRight(){
-		return buttonPanel.getRawButtonPressed(RobotMap.blueRight);
+		return blueRight.get();
 	}
 
 	public boolean getWhite(){
-		return buttonPanel.getRawButtonPressed(RobotMap.white);
+		return white.get();
 	}
+
+
+	/*
+	* * * * * * * * * * * * * * * * * * * * *
+	* get pressed since last check
+	*/
+
+	/*
+	public boolean getGreenLeftPressed(){}
+
+	public boolean getGreenRightPressed(){}
+
+	public boolean getYellowLeftPressed(){}
+
+	public boolean getYellowRightPressed(){}
+
+	public boolean getRedLeftPressed(){}
+
+	public boolean getRedRightPressed(){}
+
+	public boolean getBlueLeftPressed(){}
+
+	public boolean getBlueRightPressed(){}
+
+	public boolean getWhitePressed(){}
+	*/
+
 
 
 

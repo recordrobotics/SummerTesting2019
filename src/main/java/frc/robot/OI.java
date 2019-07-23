@@ -9,13 +9,22 @@ package frc.robot;
 
 import java.lang.Math;
 import frc.robot.ButtonPanelController;
+import frc.robot.ButtonMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
 
-  public static ButtonPanelController buttons = new ButtonPanelController();
+  // public static ButtonPanelController buttons;
+  public OI(){
+    // buttons = new ButtonPanelController()
+
+
+  }
+
+
+  
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -48,6 +57,8 @@ public class OI {
     //TODO
     // to be implemented - should return a value from -1 to 1, indicating
     // how fast to turn
+
+    System.out.println(ButtonMap.WHITE);
     return 0.0;
   }
 
