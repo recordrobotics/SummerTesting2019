@@ -39,14 +39,6 @@ public class RobotMap {
 
 	//button panel
 	public static int buttonPanelPort = 1;
-	public static int greenLeft = 1;
-	public static int greenRight = 2;
-	public static int yellowLeft = 3;
-	public static int yellowRight = 4;
-	public static int redLeft = 7;
-	public static int redRight = 5;
-	public static int blueLeft = 8;
-	public static int blueRight = 9;
-	public static int white = 6;
+	
 
 }
