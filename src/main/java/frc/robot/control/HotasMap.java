@@ -1,3 +1,5 @@
+package frc.robot.control;
+
 public final class HotasMap{
 
 	//TODO set these!

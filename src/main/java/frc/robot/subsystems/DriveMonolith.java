@@ -26,14 +26,14 @@ public class DriveMonolith extends DriveTrain {
 
 
   public void moveLeftWheels(double amount){
-    frontLeft.set(amount);
-    backLeft.set(amount);
+    frontLeft.set(-amount);
+    backLeft.set(-amount);
   }
 
 
   public void moveRightWheels(double amount){
-    frontRight.set(-amount);
-    backRight.set(-amount);
+    frontRight.set(amount);
+    backRight.set(amount);
   }
 
   public double getLeftEncoder(){

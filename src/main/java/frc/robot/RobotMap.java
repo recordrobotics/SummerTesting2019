@@ -39,6 +39,9 @@ public class RobotMap {
 
 	//button panel
 	public static int buttonPanelPort = 1;
+
+	//hotas
+	public static int hotasPort = 0;
 	
 
 }
