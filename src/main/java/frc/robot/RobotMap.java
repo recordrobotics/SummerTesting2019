@@ -37,9 +37,11 @@ public class RobotMap {
 	public static int driveBackRightPortMonty = 2;
 	public static int driveBackLeftPortMonty = 1;
 
+
+	// the controller ports can be found in the driver station
+
 	//button panel
 	public static int buttonPanelPort = 1;
-
 	//hotas
 	public static int hotasPort = 0;
 	

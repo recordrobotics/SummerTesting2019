@@ -17,7 +17,4 @@ public final class HotasMap{
 	private static int button12 = -1;
 	private static int button13 = -1;
 
-	private static int zAxis = -1;
-	private static int xAxis = -1;
-	private static int yAxis = -1;
 }

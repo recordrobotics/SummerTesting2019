@@ -43,8 +43,8 @@ public class ManualDrive extends Command{
     leftAmount += turnAmount;
     rightAmount -= turnAmount;
 
-    leftAmount = OI.sCurve(leftAmount);
-    rightAmount = OI.sCurve(rightAmount);
+    leftAmount = OI.accCurve(leftAmount);
+    rightAmount = OI.accCurve(rightAmount);
 
     Robot.driveTrain.moveLeftWheels(leftAmount);
     Robot.driveTrain.moveRightWheels(rightAmount);
