@@ -9,7 +9,6 @@ package frc.robot;
 
 import java.lang.Math;
 import frc.robot.control.ButtonPanelController;
-import frc.robot.control.ButtonMap;
 import frc.robot.control.HotasController;
 
 
@@ -57,7 +56,7 @@ public class OI {
   * * * * * * * * * * * * * *
   */
 
-  private static double currentSpeed = 0;
+
 
   public static double getForward(){
     return hotas.getY();
