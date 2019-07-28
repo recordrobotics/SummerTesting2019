@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
+//gyroscope imports
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,10 +37,12 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static OI m_oi;
 
-
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  //gyroscope constructor
+  public static ADXRS450_Gyro gyro = new ADXRS450_Gyro(RobotMap.gyroPort);
+  
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -56,6 +61,9 @@ public class Robot extends TimedRobot {
     } else {
       System.out.println("OH NO ---> someone forgot to instantiate the drive train");
     }
+
+    //calibrate gyroscope
+    gyro.calibrate();
   }
 
   /**
