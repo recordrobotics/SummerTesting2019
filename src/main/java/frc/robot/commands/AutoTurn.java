@@ -50,17 +50,25 @@ public class AutoTurn extends Command {
     double rightAmount;
 
     //determine which way to turn the wheels
-      if (Math.abs(targetAngle) > 180){
-        leftAmount = increment;
-        rightAmount = -increment;
-      } else {
-        leftAmount = -increment;
-        rightAmount = increment;
-      }
+    boolean turnRight;
 
-      //move the robot around it's own axis
-      Robot.driveTrain.moveLeftWheels(leftAmount);
-      Robot.driveTrain.moveRightWheels(rightAmount);
+    if (Math.abs((targetAngle - initAngle) - 180) > 180){
+      turnRight = false;
+    } else {
+      turnRight = true;
+    }
+
+    if (turnRight){
+      leftAmount = increment;
+      rightAmount = -increment;
+    } else {
+      leftAmount = -increment;
+      rightAmount = increment;
+    }
+
+    //move the robot around it's own axis
+    Robot.driveTrain.moveLeftWheels(leftAmount);
+    Robot.driveTrain.moveRightWheels(rightAmount);
   }
 
   // Make this return true when this Command no longer needs to run execute()
