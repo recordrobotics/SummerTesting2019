@@ -32,14 +32,7 @@ public class AutoTurn extends Command {
     initAngle = Robot.gyro.getAngle(); //is a value from 0 to 360 representing the angle the robot is at
     targetAngle = initAngle + inputAngle; //sets the target angle, there is a risk of the angle being less than 360 or greater than 0
     //make sure that angle is between 0 and 360
-    while(targetAngle > 360 || targetAngle < 0){
-        if (targetAngle > 360){
-            targetAngle -= 360; //if the angle is more than 360, reduce it in intervals of 360 until it is in range
-        } 
-        if (targetAngle < 0) {
-            targetAngle += 360; //if the angle is less than 360, add 360 until it is in range
-        }
-    }
+    targetAngle = targetAngle % 360;
   }
 
   // Called repeatedly when this Command is scheduled to run
