@@ -66,7 +66,7 @@ public class AutoTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() < precision || Robot.gyro.getAngle() > -precision){
+    if (Robot.gyro.getAngle() < targetAngle + precision || Robot.gyro.getAngle() > targetAngle - precision){
         return true;
     } else{
         return false;

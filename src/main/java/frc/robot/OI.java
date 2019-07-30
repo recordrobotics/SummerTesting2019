@@ -10,7 +10,8 @@ package frc.robot;
 import java.lang.Math;
 import frc.robot.control.ButtonPanelController;
 import frc.robot.control.HotasController;
-
+import frc.robot.commands.AutoTurn;
+import frc.robot.control.ButtonMap;;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,6 +22,15 @@ public class OI {
   private static HotasController hotas = new HotasController();
   public OI(){
     // buttonPanel
+
+    //control autoTurning with blue buttons
+
+    double dirMult = 1; //change to -1 if the right button makes robot turns left and vice-versa
+    int autoRightButton = ButtonMap.turn90Right; //button to use for turing the robot 90 degrees to the right
+    int autoLeftButton = ButtonMap.turn90Left; //button to use for turing the robot 90 degrees to the left
+
+    buttonPanel.getButton(autoRightButton).whenPressed(new AutoTurn(90 * dirMult)); //right turn
+    buttonPanel.getButton(autoLeftButton).whenPressed(new AutoTurn(90 * -dirMult)); //left turn
   }
 
   /*

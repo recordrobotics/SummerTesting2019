@@ -21,4 +21,6 @@ public final class ButtonMap {
 	public static int aquire = redLeft;
 	public static int eject = redRight;
 	public static int dance = white;
+	public static int turn90Right = blueRight;
+	public static int turn90Left = blueLeft;
 }
