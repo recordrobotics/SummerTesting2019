@@ -13,14 +13,9 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import java.io.*;
 
 public class MaintainCourse extends Command {
-
-  /*
-  Everything in this class is based on a PID controller, and is not yet properly implemented
-  Use at own risk, as it is improbable that this will function as inteded
-  Beware of any evil spirts awoken when executing this command
-  */
 
   //PID parameters
   double Kp;
@@ -34,9 +29,20 @@ public class MaintainCourse extends Command {
   double target;
   double tolerance;
 
-  public MaintainCourse() {
+  String outputPath = "\\logs\\PIDoutput.txt";
+  BufferedWriter writer;
+
+  public MaintainCourse() throws IOException{
     // Use requires() here to declare subsystem dependencies
     requires(Robot.driveTrain);
+    //create the writer
+    writer = new BufferedWriter(new FileWriter("*\\logs\\PIDoutput.txt"));
+    writer.write("interval \t output \t error \t angle \t target \n\r");
+  }
+
+  //method that generates output
+  void writeOutput(int interval, double result, double error, double angle, double target) throws IOException {
+    writer.write(interval + " \t" + result + " \t" + error + " \t" + angle + " \t" + target + "\n\r");
   }
 
   // Called just before this Command runs the first time
@@ -51,7 +57,7 @@ public class MaintainCourse extends Command {
     tolerance = 5; //Percent tolerance, 5.0 means 5%.
     target = Robot.gyro.getAngle(); //set the target to be the angle that the robot was at when the command was initialised
 
-    gyroSource = new PIDSource(){ //set up the angle of the gyroscope as the source of the PID. Due to a quirk of the library, a double cannot be used directly
+    gyroSource = new PIDSource() { //set up the angle of the gyroscope as the source of the PID. Due to a quirk of the library, a double cannot be used directly
     
       @Override
       public void setPIDSourceType(PIDSourceType pidSource) {} //ignore this, but do not delete
@@ -68,11 +74,12 @@ public class MaintainCourse extends Command {
     };
     //create the PID object and set Target, Tolerance, etc.
     PID = new PIDController(Kp, Ki, Kd, gyroSource, output);
-    PID.setSetpoint(Robot.gyro.getAngle());
+    PID.setSetpoint(target);
     PID.setPercentTolerance(tolerance);
   }
 
   // Called repeatedly when this Command is scheduled to run
+  int interval = 0;
   @Override
   protected void execute() {
     System.out.println(PID.get());
@@ -86,6 +93,14 @@ public class MaintainCourse extends Command {
 
     Robot.driveTrain.moveLeftWheels(leftAmount);
     Robot.driveTrain.moveRightWheels(rightAmount);
+    
+    //write result to output for debugging and calibration
+    try {
+    writeOutput(interval, PID.get(), PID.getError(), Robot.gyro.getAngle(), PID.getSetpoint());
+    } catch(IOException er) {
+      System.out.println("Couldn't write to file because of " + er);
+    }
+    interval++;
   }
 
   // Make this return true when this Command no longer needs to run execute()
