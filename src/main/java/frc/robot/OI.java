@@ -7,10 +7,14 @@
 
 package frc.robot;
 
+import java.io.IOException;
 import java.lang.Math;
+
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.control.ButtonPanelController;
 import frc.robot.control.HotasController;
 import frc.robot.commands.AutoTurn;
+import frc.robot.commands.MaintainCourse;
 import frc.robot.control.ButtonMap;;
 
 /**
@@ -24,13 +28,23 @@ public class OI {
     // buttonPanel
 
     //control autoTurning with blue buttons
-
     double dirMult = 1; //change to -1 if the right button makes robot turns left and vice-versa
     int autoRightButton = ButtonMap.turn90Right; //button to use for turing the robot 90 degrees to the right
     int autoLeftButton = ButtonMap.turn90Left; //button to use for turing the robot 90 degrees to the left
 
     buttonPanel.getButton(autoRightButton).whenPressed(new AutoTurn(90 * dirMult)); //right turn
     buttonPanel.getButton(autoLeftButton).whenPressed(new AutoTurn(90 * -dirMult)); //left turn
+
+    //toggle MaintainCourse
+    int PIDtoggle = ButtonMap.togglePID;
+    Command PIDcmd = null;
+    try {
+      PIDcmd = new MaintainCourse();
+    } catch (IOException err){
+      System.out.println(err);
+    }
+    buttonPanel.getButton(PIDtoggle).toggleWhenPressed(PIDcmd);
+
   }
 
   /*
@@ -65,6 +79,7 @@ public class OI {
   * INPUT HANDELING METHODS *
   * * * * * * * * * * * * * *
   */
+
 
 
 
