@@ -24,6 +24,9 @@ import frc.robot.control.ButtonMap;;
 public class OI {
   private static ButtonPanelController buttonPanel = new ButtonPanelController();
   private static HotasController hotas = new HotasController();
+
+  boolean enablePID = false;
+
   public OI(){
     // buttonPanel
 
@@ -36,15 +39,16 @@ public class OI {
     buttonPanel.getButton(autoLeftButton).whenPressed(new AutoTurn(90 * -dirMult)); //left turn
 
     //toggle MaintainCourse
-    int PIDtoggle = ButtonMap.togglePID;
-    Command PIDcmd = null;
-    try {
-      PIDcmd = new MaintainCourse();
-    } catch (IOException err){
-      System.out.println(err);
+    if (enablePID){
+      int PIDtoggle = ButtonMap.togglePID;
+      Command PIDcmd = null;
+      try {
+        PIDcmd = new MaintainCourse();
+      } catch (IOException err){
+        System.out.println(err);
+      }
+      buttonPanel.getButton(PIDtoggle).toggleWhenPressed(PIDcmd);
     }
-    buttonPanel.getButton(PIDtoggle).toggleWhenPressed(PIDcmd);
-
   }
 
   /*

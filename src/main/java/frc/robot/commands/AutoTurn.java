@@ -16,7 +16,6 @@ public class AutoTurn extends Command {
     double inputAngle; //number of degrees to turn
     double initAngle;   //angle when command is started
     double targetAngle; //angle robot is trying to be at
-    double precision = 1; //how precise to make the turn
 
     //constructor
   public AutoTurn(double angle) {
@@ -67,7 +66,7 @@ public class AutoTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() < targetAngle + precision || Robot.gyro.getAngle() > targetAngle - precision){
+    if (Robot.gyro.getAngle() > targetAngle){
         return true;
     } else{
         return false;
