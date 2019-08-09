@@ -34,7 +34,7 @@ public class MaintainCourse extends Command {
 
   public MaintainCourse() throws IOException{
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.driveTrain);
+    //requires(Robot.driveTrain);
     //create the writer
     writer = new BufferedWriter(new FileWriter("*\\logs\\PIDoutput.txt"));
     writer.write("interval \t output \t error \t angle \t target \n\r");

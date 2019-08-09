@@ -31,7 +31,7 @@ public class OI {
     // buttonPanel
 
     //control autoTurning with blue buttons
-    double dirMult = 1; //change to -1 if the right button makes robot turns left and vice-versa
+    double dirMult = 1; //change to -1 if the right button makes robot turns left and vice-versa - DO NOT SET TO ANY VALUE OTHER THAN 1 OR -1
     int autoRightButton = ButtonMap.turn90Right; //button to use for turing the robot 90 degrees to the right
     int autoLeftButton = ButtonMap.turn90Left; //button to use for turing the robot 90 degrees to the left
 

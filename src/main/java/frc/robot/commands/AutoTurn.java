@@ -20,7 +20,7 @@ public class AutoTurn extends Command {
     //constructor
   public AutoTurn(double angle) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.driveTrain);
+    //requires(Robot.driveTrain);
     //assigns argument to variable
     this.inputAngle = angle; //input should be an angle from -180 to positive 180
   }
@@ -31,12 +31,14 @@ public class AutoTurn extends Command {
     initAngle = Robot.gyro.getAngle(); //is a value from 0 to 360 representing the angle the robot is at
     targetAngle = initAngle + inputAngle; //sets the target angle, there is a risk of the angle being less than 360 or greater than 0
     //make sure that angle is between 0 and 360
-    targetAngle = targetAngle % 360;
+    //targetAngle = targetAngle % 360;
+    System.out.println("init autoturn, target: " + targetAngle);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    System.out.println(Robot.gyro.getAngle());
     double increment = 0.5; //the amount that the robot will turn every second
     double leftAmount;
     double rightAmount;
@@ -66,7 +68,7 @@ public class AutoTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() > targetAngle){
+    if (Robot.gyro.getAngle() > targetAngle || Robot.gyro.getAngle() < -targetAngle){
         return true;
     } else{
         return false;

@@ -56,6 +56,7 @@ public class Robot extends TimedRobot {
 
     if(currentRobot == CurrentRobot.MONOLITH){
       driveTrain = new DriveMonolith();
+      System.out.println("Monolith Initialized");
     } else if (currentRobot == CurrentRobot.MONTY){
       driveTrain = new DriveMonty();
     } else {
