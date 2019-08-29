@@ -34,7 +34,9 @@ public class MaintainCourse extends Command {
 
   public MaintainCourse() throws IOException{
     // Use requires() here to declare subsystem dependencies
-    //requires(Robot.driveTrain);
+    if (Robot.driveTrain != null){
+      requires(Robot.driveTrain);
+    }
     //create the writer
     writer = new BufferedWriter(new FileWriter("*\\logs\\PIDoutput.txt"));
     writer.write("interval \t output \t error \t angle \t target \n\r");
@@ -50,7 +52,7 @@ public class MaintainCourse extends Command {
   protected void initialize() {
 
     //set all the PID calibration variation, calibrate here
-    Kp = 0;
+    Kp = 1;
     Ki = 0;
     Kd = 0;
 
@@ -82,6 +84,10 @@ public class MaintainCourse extends Command {
   int interval = 0;
   @Override
   protected void execute() {
+    
+  }
+
+  void adjustCourse() {
     System.out.println(PID.get());
 
     //turn the robot around it's own axis by the amount indicated

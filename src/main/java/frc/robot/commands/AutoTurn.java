@@ -9,18 +9,20 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import java.lang.Math;
 
 public class AutoTurn extends Command {
     //declare variables
     double inputAngle; //number of degrees to turn
     double initAngle;   //angle when command is started
     double targetAngle; //angle robot is trying to be at
+    double precision = 1;
 
     //constructor
   public AutoTurn(double angle) {
     // Use requires() here to declare subsystem dependencies
-    //requires(Robot.driveTrain);
+    if (Robot.driveTrain != null){
+      requires(Robot.driveTrain);
+    }
     //assigns argument to variable
     this.inputAngle = angle; //input should be an angle from -180 to positive 180
   }
@@ -28,10 +30,8 @@ public class AutoTurn extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    initAngle = Robot.gyro.getAngle(); //is a value from 0 to 360 representing the angle the robot is at
+    initAngle = Robot.gyro.getAngle(); //is a value representing the angle the robot is at
     targetAngle = initAngle + inputAngle; //sets the target angle, there is a risk of the angle being less than 360 or greater than 0
-    //make sure that angle is between 0 and 360
-    //targetAngle = targetAngle % 360;
     System.out.println("init autoturn, target: " + targetAngle);
   }
 
@@ -39,14 +39,14 @@ public class AutoTurn extends Command {
   @Override
   protected void execute() {
     System.out.println(Robot.gyro.getAngle());
-    double increment = 0.5; //the amount that the robot will turn every second
+    double increment = 0.5; //the amount that the robot will turn every execution
     double leftAmount;
     double rightAmount;
 
     //determine which way to turn the wheels
     boolean turnRight;
 
-    if (Math.abs((targetAngle - initAngle) - 180) > 180){
+    if (targetAngle > initAngle){
       turnRight = false;
     } else {
       turnRight = true;
@@ -68,7 +68,8 @@ public class AutoTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() > targetAngle || Robot.gyro.getAngle() < -targetAngle){
+    if (Robot.gyro.getAngle() > targetAngle - precision && Robot.gyro.getAngle() < targetAngle + precision){
+        System.out.println("Done turing at angle: " + Robot.gyro.getAngle());
         return true;
     } else{
         return false;

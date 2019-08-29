@@ -46,8 +46,13 @@ public class OI {
         PIDcmd = new MaintainCourse();
       } catch (IOException err){
         System.out.println(err);
+        System.out.println("unable to instantiate PID controller");
       }
-      buttonPanel.getButton(PIDtoggle).toggleWhenPressed(PIDcmd);
+      if (PIDcmd == null){
+        System.out.println("UNABLE TO TOGGLE: PID CONTROLLER NULL");
+      } else {
+        buttonPanel.getButton(PIDtoggle).toggleWhenPressed(PIDcmd);
+      }
     }
   }
 
