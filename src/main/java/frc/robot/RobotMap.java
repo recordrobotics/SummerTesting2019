@@ -45,8 +45,14 @@ public class RobotMap {
 	public static int buttonPanelPort = 1;
 	//hotas
 	public static int hotasPort = 0;
+
 	//gyroscope port
 	public static SPI.Port gyroPort = SPI.Port.kOnboardCS0; //TODO: not sure if this is is the right port
+	//Encoder ports
+	public static int encoderL1;
+	public static int encoderL2;
+	public static int encoderR1;
+	public static int encoderR2;
 	
 
 }

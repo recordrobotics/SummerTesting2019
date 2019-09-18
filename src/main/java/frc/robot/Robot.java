@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
-//gyroscope imports
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Encoder;
 
 
 /**
@@ -36,12 +36,18 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static DriveTrain driveTrain;
   public static OI m_oi;
+  public static NavEncoder navEncoder;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   //gyroscope constructor
   public static ADXRS450_Gyro gyro = new ADXRS450_Gyro(RobotMap.gyroPort);
+
+  //encoder constructor
+  public static Encoder encoderL = new Encoder(RobotMap.encoderL1, RobotMap.encoderL2);
+  public static Encoder encoderR = new Encoder(RobotMap.encoderR1, RobotMap.encoderR2);
+
   
   /**
    * This function is run when the robot is first started up and should be
@@ -62,6 +68,8 @@ public class Robot extends TimedRobot {
     } else {
       System.out.println("OH NO ---> someone forgot to instantiate the drive train");
     }
+
+    navEncoder = new NavEncoder();
 
     //calibrate gyroscope
     gyro.calibrate();
