@@ -22,14 +22,14 @@ public class CoordNav extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.encoderL.setDistancePerPulse(navEncoder.circumference);
-    Robot.encoderL.setDistancePerPulse(EncoderNav.circumference);
+    Robot.encoderL.setDistancePerPulse(Robot.navEncoder.circumference);
+    Robot.encoderL.setDistancePerPulse(Robot.navEncoder.circumference);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      if (Robot.encoderNav.countHasChanged()) {
+      if (Robot.navEncoder.countHasChanged()) {
           System.out.println(Robot.encoderL.get());
           System.out.println(Robot.encoderL.getDistance());
       }
